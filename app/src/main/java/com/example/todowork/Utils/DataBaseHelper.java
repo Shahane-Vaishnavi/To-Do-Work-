@@ -64,6 +64,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db=this.getWritableDatabase();
         db.delete(TABLE_NAME,"ID=?",new String[]{String.valueOf(id)});
     }
+
+    public void updateTask(int id, String task) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("task", task);
+        db.update("TODO_TABLE", cv, "id=?", new String[]{String.valueOf(id)});
+    }
+
     public List<ToDoModel> getAllTasks() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
@@ -89,4 +97,5 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
         return modelList;
     }
+
 }
