@@ -21,7 +21,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class AddNewTask extends BottomSheetDialogFragment {
 
-    private static final String TAG = "AddNewTask";
+    public static final String TAG = "AddNewTask";
     private EditText mEditTExt;
     private Button mSaveButton;
     private DataBaseHelper myDB;

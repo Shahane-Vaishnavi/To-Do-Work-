@@ -1,6 +1,7 @@
 package com.example.todowork;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,20 +17,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.todowork.Adapter.ToDoAdapter;
+import com.example.todowork.Model.ToDoModel;
 import com.example.todowork.Utils.DataBaseHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnDialogCloseListener{
 
 
-    RecyclerView recyclerView;
-    FloatingActionButton addButton;
-    DataBaseHelper myDB;
-    EditText editText;
+    private RecyclerView recyclerView;
+    private FloatingActionButton addButton;
+    private DataBaseHelper myDB;
+    private List<ToDoModel> mList;
+    private ToDoAdapter adapter;
 
 
     @Override
@@ -46,13 +53,31 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         addButton = findViewById(R.id.addButton);
         myDB = new DataBaseHelper(MainActivity.this);
+        mList = new ArrayList<>();
+        adapter = new ToDoAdapter(myDB, MainActivity.this);
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+
+
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AddNewTask.newInstance().show(getSupportFragmentManager(),AddNewTask.TAG);
 
             }
         });
+    }
+
+    @Override
+    public void onDialogClose(DialogInterface dialogInterface) {
+        mList = myDB.getAllTasks();
+        Collections.reverse(mList);
+        adapter.setTasks(mList);
+        adapter.notifyDataSetChanged();
 
     }
+
 }
