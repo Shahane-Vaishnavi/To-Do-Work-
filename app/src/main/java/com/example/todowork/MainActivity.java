@@ -60,7 +60,9 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-
+        mList = myDB.getAllTasks();
+        Collections.reverse(mList);
+        adapter.setTasks(mList);
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
