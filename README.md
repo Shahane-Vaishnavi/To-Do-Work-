@@ -35,3 +35,4 @@ Only two activities are registered in `AndroidManifest.xml`: `SplashScreen` (lau
 - Database is stored locally; uninstalling the app clears tasks.
 - To change splash duration, edit the `3000` ms delay in `SplashScreen`.
 
+I'm currently working on this project in future I will intigret a AI on this application 
