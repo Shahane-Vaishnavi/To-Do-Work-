@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.graphics.Canvas;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,8 +52,19 @@ public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
         }
     }
 
-    @Override
-    public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-    }
+//    @Override
+//    public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+//
+//        new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+//                .addSwipeLeftBackgroundColor(ContextCompat.getColor(adapter.getContext(), R.color.red));
+//                .addSwipeLeftActionIcon(R.drawable.deletelogo);
+//                .addSwipeRightBackgroundColor(ContextCompat.getColor(adapter.getContext(), R.color.green));
+//                .addSwipeRightActionIcon(R.drawable.ic_edit;
+//
+//                .create()
+//                .decorate();
+//
+//        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+//    }
+
 }
