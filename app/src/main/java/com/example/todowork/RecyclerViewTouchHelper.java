@@ -2,6 +2,7 @@ package com.example.todowork;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Canvas;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -48,5 +49,10 @@ public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
         }else{
             adapter.editItem(position);
         }
+    }
+
+    @Override
+    public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
     }
 }
