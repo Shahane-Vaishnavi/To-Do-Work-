@@ -8,7 +8,7 @@ material = "1.13.0"
 activity = "1.12.2"
 constraintlayout = "2.2.1"
 #noinspection NewerVersionAvailable
-recyclerviewSwipedecorator = "1.4.1"
+recyclerviewSwipedecorator = "1.4"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
