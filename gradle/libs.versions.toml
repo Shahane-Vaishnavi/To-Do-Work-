@@ -18,7 +18,7 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-recyclerviewSwipedecorator = { group = "it.xabaras.android", name = "recyclerview-swipedecorator", version.ref = "recyclerviewSwipedecorator" }
+recyclerviewSwipedecorator = { module = "it.xabaras.android:recyclerview-swipedecorator", version.ref = "recyclerviewSwipedecorator" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 
